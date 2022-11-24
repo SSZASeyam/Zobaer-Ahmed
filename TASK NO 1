@@ -1,0 +1,51 @@
+#include <bits/stdc++.h>
+using namespace std;
+class Account
+{
+    private:
+    string AccountName;
+    string AccountNo;
+    int Balance;
+    int deposit;
+    int withdraw;
+    string AccountType;
+    public:
+       void SetAccountInfo( string AccName , string AccNo , string Type)
+        {
+            AccountName = AccName;
+            AccountNo = AccNo;
+            AccountType = Type;
+        }
+        int checkBalance()
+        {
+         Balance = 0;
+        }
+        ~Account(){}
+        int depositMoney(int amount)
+        {
+            deposit = amount ;
+            Balance = Balance + deposit;
+            return Balance;
+        }
+        int withdrawMoney(int amount)
+        {
+            withdraw = amount;
+            Balance = Balance - withdraw;
+            return withdraw;
+        }
+        void getAccountInfo(){
+        cout<<"The account name is : "<<AccountName<<endl;
+        cout<<"The account no is : "<<AccountNo<<endl;
+        cout<<"Account's balace is : "<<Balance<<endl;
+        cout<<"The account type is : "<<AccountType<<endl;}
+};
+int main()
+{
+    Account Cus1;
+    Cus1.SetAccountInfo("Touhidur","309650348","Savings");
+cout<<"Check Balance : "<<Cus1.checkBalance()<<endl;
+Cus1.depositMoney(70000);
+Cus1.withdrawMoney(10000);
+Cus1.getAccountInfo();
+    return 0;
+}
