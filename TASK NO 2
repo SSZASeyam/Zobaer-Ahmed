@@ -1,0 +1,68 @@
+#include <iostream>
+using namespace std;
+
+class Mobile
+{
+    string OwnerName;
+    int Number;
+    int Balance;
+    string OSName;
+    bool LockStatus;
+
+
+public:
+    Mobile()
+    {
+        Balance=0;
+    }
+    Mobile(int a)
+    {
+        Balance=a;
+    }
+    ~Mobile() {}
+    void setInfo(string OWName,int Num,string OS,bool LkS)
+    {
+
+        OwnerName=OWName;
+        Number=Num;
+        OSName=OS;
+        LockStatus=LkS;
+
+
+    }
+    void ShowInfo()
+    {
+
+        cout<<"The owner namer is : "<< OwnerName<<endl;
+        cout<<"The number is : "<<Number<<endl;
+        cout<<"Your balance is : "<<Balance<<endl;
+        cout<<"The Os name is : "<<OSName<<endl;
+        cout<<"Your lock status is : "<<LockStatus<<endl;
+    }
+    int Recharge(int a)
+    {
+
+        Balance+=a;
+        return a;
+    }
+    double CallSomeone(int timeDuration)
+    {
+        int T =(timeDuration*0.5);
+        Balance=Balance - T;
+        return T;
+    }
+
+};
+int main()
+{
+    Mobile Owner1;
+    Owner1.setInfo("Zobaer",01405,"Ios",false);
+    Owner1.Recharge(300);
+    Owner1.CallSomeone(40);
+    Owner1.ShowInfo();
+
+
+
+    return 0;
+
+}
